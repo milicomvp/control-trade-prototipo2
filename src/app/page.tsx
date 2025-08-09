@@ -38,19 +38,68 @@ export default function Home() {
       <section id="inicio" className="bg-gradient-to-r from-blue-100 to-white py-20 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-5xl font-bold text-blue-900 mb-6">
-            Somos especialistas en importación de vehículos, maquinaria y más
+            Desde tu primera importación hasta el éxito global
           </h1>
           <p className="text-lg text-gray-700 mb-6">
-            Control Trade Logistics ofrece soluciones puerta a puerta para tus envíos internacionales
+            Somos especialistas en logística internacional para importadores, exportadores y PYMEs.
+            <br />
+            Con metodología, control y eficiencia, llevamos tu operación al siguiente nivel.
           </p>
           <a href="#cotizacion" className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition">
-            Solicita tu Cotización
+            Cotiza tu operación
+          </a>
+          <a href="#cotizacion" className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition ml-4">
+            Solicita asesoría gratuita
           </a>
         </div>
       </section>
 
+      {/* QUIÉNES SOMOS */}
+      <section id="quienes-somos" className="bg-blue-50 py-16">
+        <div className="max-w-5xl mx-auto px-4 text-center md:text-left">
+          {/* Título */}
+          <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">
+            Quiénes Somos
+          </h2>
+
+          {/* Contenido */}
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              En <strong>Control Trade Logistics SPA</strong> ayudamos a importadores, exportadores y PYMEs a
+              gestionar sus operaciones de comercio exterior con rapidez, eficiencia y una
+              metodología clara.
+            </p>
+            <p>
+              Somos una empresa nueva, pero fundada sobre más de 21 años de experiencia en el
+              rubro logístico, especialmente en freight forwarding, manejo de cargas de proyecto,
+              coordinación de transporte internacional y operaciones de importación y exportación.
+            </p>
+            <p>
+              Nuestro fundador, <strong>Javier Herrera Jorquera</strong>, ha desarrollado su trayectoria en
+              empresas líderes del sector, desempeñando roles clave en la coordinación operativa y
+              comercial. Su enfoque combina visión estratégica, capacidad de ejecución y un
+              profundo conocimiento del comercio internacional.
+            </p>
+            <p>
+              Conocemos los desafíos reales de quienes comienzan a importar o exportar, así como
+              las exigencias de quienes ya están en movimiento. Por eso, ofrecemos soluciones
+              integrales con un alto estándar de control, comunicación y responsabilidad.
+            </p>
+            <p>
+              No solo movemos carga, impulsamos tu negocio.
+            </p>
+          </div>
+
+          {/* Cita / Promesa */}
+          <blockquote className="mt-8 text-lg font-semibold text-blue-800 italic text-center">
+            “Nuestra promesa: metodología, control y soluciones reales para tu negocio internacional.”
+          </blockquote>
+        </div>
+      </section>
+
+
       {/* SERVICIOS */}
-      <section id="servicios" className="py-16 bg-white">
+      {/* <section id="servicios" className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-blue-900 mb-12 text-center">Servicios Especializados</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -95,6 +144,49 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section> */}
+
+      {/* POR QUE ELEGIRNOS */}
+      <section id="porqueelegirnos" className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-blue-900 mb-12 text-center">¿Por qué elegirnos?</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                titulo: "Rapidez operativa",
+                img: "/images/rapidez-operativa.jpg",
+                desc: "Optimizamos tiempos y procesos desde origen hasta destino.",
+              },
+              {
+                titulo: "Metodología y control",
+                img: "/images/metodología-control.png",
+                desc: "Aplicamos procedimientos probados con seguimiento profesional en cada etapa.",
+              },
+              {
+                titulo: "Cobertura internacional",
+                img: "/images/cobertura-internacional.jpg",
+                desc: "Red global de agentes y aliados estratégicos para tus envíos.",
+              },
+            ].map((servicio, idx) => (
+              <div
+                key={idx}
+                className="border border-blue-100 rounded-lg overflow-hidden shadow hover:shadow-lg transition"
+              >
+                <img
+                  src={servicio.img}
+                  alt={servicio.titulo}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-green-700 mb-2">
+                    {servicio.titulo}
+                  </h3>
+                  <p className="text-gray-700">{servicio.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* VENTAJAS */}
@@ -110,6 +202,38 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* PENSADO PARA TI */}
+      <section id="pensado-para-ti" className="bg-white py-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          {/* Título */}
+          <h2 className="text-3xl font-bold text-blue-900 mb-8">
+            Pensado para ti
+          </h2>
+
+          {/* Lista de elementos */}
+          <ul className="space-y-4 text-lg text-gray-700 mb-8">
+            <li className="flex items-center justify-center space-x-2">
+              <span className="text-green-600 text-xl">✔</span>
+              <span>Importadores primerizos (REVISAR)</span>
+            </li>
+            <li className="flex items-center justify-center space-x-2">
+              <span className="text-green-600 text-xl">✔</span>
+              <span>Exportadores en expansión</span>
+            </li>
+            <li className="flex items-center justify-center space-x-2">
+              <span className="text-green-600 text-xl">✔</span>
+              <span>PYMEs que buscan internacionalizarse</span>
+            </li>
+          </ul>
+
+          {/* Pie de sección */}
+          <p className="text-xl font-bold text-blue-900 mb-8">
+            Conectamos tu negocio con el mundo.
+          </p>
+        </div>
+      </section>
+
 
       {/* COTIZACIÓN */}
       <section id="cotizacion" className="bg-white py-16">
@@ -129,7 +253,7 @@ export default function Home() {
 
       {/* CONTACTO */}
       <section id="contacto" className="bg-blue-900 text-white py-16">
-          <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+        <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-3">Contáctanos</h3>
             <p>Email: contacto@controltrade.cl</p>
