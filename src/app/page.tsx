@@ -45,14 +45,25 @@ export default function Home() {
             <br />
             Con metodología, control y eficiencia, llevamos tu operación al siguiente nivel.
           </p>
-          <a href="#cotizacion" className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition">
-            Cotiza tu operación
-          </a>
-          <a href="#cotizacion" className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition ml-4">
-            Solicita asesoría gratuita
-          </a>
+
+          {/* Contenedor de botones */}
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <a
+              href="#cotizacion"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition"
+            >
+              Cotiza tu operación
+            </a>
+            <a
+              href="#cotizacion"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition"
+            >
+              Solicita asesoría gratuita
+            </a>
+          </div>
         </div>
       </section>
+
 
       {/* QUIÉNES SOMOS */}
       <section id="quienes-somos" className="bg-blue-50 py-16">
