@@ -2,6 +2,8 @@
 
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import type { Components } from 'react-markdown';
+import Image from 'next/image';
 
 export default function ServiciosSection() {
   const servicios = [
@@ -72,11 +74,16 @@ Acompañamos al cliente en cada etapa del proceso, asegurando un flujo operativo
     },
   ];
 
-  const mdComponents = {
-    p: (props: any) => <p className="text-gray-700 leading-relaxed mb-3" {...props} />,
-    ul: (props: any) => <ul className="list-disc pl-6 space-y-1 text-gray-700 mb-3" {...props} />,
-    li: (props: any) => <li className="marker:text-green-600" {...props} />,
-    strong: (props: any) => <strong className="text-blue-900" {...props} />,
+// Tipado correcto para los componentes de Markdown (sin "any")
+  const mdComponents: Components = {
+    p: ({ node, ...props }) => (
+      <p className="text-gray-700 leading-relaxed mb-3" {...props} />
+    ),
+    ul: ({ node, ...props }) => (
+      <ul className="list-disc pl-6 space-y-1 text-gray-700 mb-3" {...props} />
+    ),
+    li: ({ node, ...props }) => <li className="marker:text-green-600" {...props} />,
+    strong: ({ node, ...props }) => <strong className="text-blue-900" {...props} />,
   };
 
   return (
@@ -92,10 +99,14 @@ Acompañamos al cliente en cada etapa del proceso, asegurando un flujo operativo
               key={idx}
               className="border border-blue-100 rounded-lg overflow-hidden shadow hover:shadow-lg transition bg-white"
             >
-              <img
+              {/* next/image para optimizar LCP y cumplir ESLint */}
+              <Image
                 src={servicio.img}
                 alt={servicio.titulo}
+                width={1200}
+                height={600}
                 className="w-full h-48 object-cover"
+                priority={false}
               />
               <div className="p-6 text-left">
                 <h3 className="text-xl font-semibold text-green-700 mb-4">
