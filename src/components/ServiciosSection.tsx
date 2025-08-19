@@ -15,7 +15,7 @@ En **CONTROL TRADE LOGISTICS** desarrollamos soluciones especializadas en transp
 Trabajamos con los principales operadores navieros y gestionamos el tipo de contenedor más adecuado según cada operación.  
 También ofrecemos la opción de carga consolidada (**LCL**), ideal para volúmenes menores, lo que permite agrupar órdenes y reducir costos.  
 
-Nuestra experiencia garantiza eficiencia, planificación precisa y una operación segura de principio a fin.
+**Nuestra experiencia garantiza eficiencia, planificación precisa y una operación segura de principio a fin.**
       `,
     },
     {
@@ -36,11 +36,12 @@ Coordinamos cada embarque con precisión, adaptándonos a las necesidades espec�
       titulo: "Servicio Aéreo",
       img: "/images/servicio-aereo.jpg",
       desc: `
-En **CONTROL TRADE LOGISTICS SPA** contamos con una red global de agentes estratégicamente ubicados que nos permite gestionar operaciones aéreas de forma ágil y segura.  
+En **CONTROL TRADE LOGISTICS** contamos con una red global de agentes estratégicamente ubicados que nos permite gestionar operaciones aéreas de forma ágil y segura.  
 
 ✈️ Nuestro enfoque está orientado a la **eficiencia operativa** y una **respuesta rápida**, garantizando la entrega oportuna de cada embarque.  
 
-Gracias a nuestras alianzas confiables, aseguramos soluciones personalizadas que cumplen con los tiempos exigentes del comercio internacional.
+Gracias a nuestras alianzas confiables, aseguramos soluciones personalizadas que cumplen con los tiempos exigentes del comercio internacional.  
+**Siempre priorizando el cumplimiento y la trazabilidad en cada etapa del proceso.**
       `,
     },
     {
@@ -53,7 +54,7 @@ En **CONTROL TRADE LOGISTICS** ofrecemos **seguros especializados** que cubren t
 
 🔒 Adaptamos cada póliza a las particularidades de tu operación, asegurando cobertura efectiva desde el origen hasta el destino final.  
 
-Nuestro servicio no solo protege tu inversión, también brinda **tranquilidad y respaldo** ante cualquier eventualidad.
+Nuestro servicio no solo protege tu inversión, también brinda **tranquilidad y respaldo** ante cualquier eventualidad que pueda surgir durante el tránsito internacional.
       `,
     },
     {
@@ -61,8 +62,10 @@ Nuestro servicio no solo protege tu inversión, también brinda **tranquilidad y
       img: "/images/proyectos-especiales.jpg",
       desc: `
 En **CONTROL TRADE LOGISTICS** nos especializamos en el manejo de cargas complejas, desde mercancía regular hasta sobredimensionada o fuera de estándar.  
+- Brindamos soluciones logísticas a medida para cada tipo de proyecto, considerando tiempos, rutas y restricciones técnicas. 
 
-📦 Nuestro servicio incluye:  
+
+📦 **Nuestro servicio incluye:**  
 - Asesoría experta  
 - Embalajes personalizados  
 - Inspecciones en terreno  
