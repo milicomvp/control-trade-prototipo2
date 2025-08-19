@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
-import Link from "next/link";
+import ServiciosSection from "@/components/ServiciosSection";
+
 
 export default function Home() {
   const [formData, setFormData] = useState({ nombre: "", email: "", mensaje: "" });
@@ -110,95 +111,8 @@ export default function Home() {
 
 
       {/* SERVICIOS */}
-      {/* <section id="servicios" className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-blue-900 mb-12 text-center">Servicios Especializados</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                titulo: "Importación de Maquinaria",
-                img: "/images/maquinaria.jpeg",
-                desc: "Gestionamos la internación de maquinaria pesada desde cualquier país con todos los trámites aduaneros incluidos.",
-              },
-              {
-                titulo: "Casas Rodantes y Motorhomes",
-                img: "/images/motorhome.png",
-                desc: "Nos especializamos en la logística y legalización de motorhomes para uso recreativo o comercial.",
-              },
-              {
-                titulo: "Lanchas y Motos de Agua",
-                img: "/images/lanchas.png",
-                desc: "Transporte seguro y expedito de embarcaciones desde EE.UU. y Europa hasta su puerto de destino.",
-              },
-              {
-                titulo: "Repuestos y Accesorios",
-                img: "/images/repuestos.jpg",
-                desc: "Envío y liberación rápida de repuestos automotrices y accesorios industriales.",
-              },
-            ].map((servicio, idx) => (
-              <div
-                key={idx}
-                className="border border-blue-100 rounded-lg overflow-hidden shadow hover:shadow-lg transition"
-              >
-                <img
-                  src={servicio.img}
-                  alt={servicio.titulo}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-green-700 mb-2">
-                    {servicio.titulo}
-                  </h3>
-                  <p className="text-gray-700">{servicio.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* POR QUE ELEGIRNOS */}
-      <section id="porqueelegirnos" className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-blue-900 mb-12 text-center">¿Por qué elegirnos?</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                titulo: "Rapidez operativa",
-                img: "/images/rapidez-operativa.jpg",
-                desc: "Optimizamos tiempos y procesos desde origen hasta destino.",
-              },
-              {
-                titulo: "Metodología y control",
-                img: "/images/metodología-control.png",
-                desc: "Aplicamos procedimientos probados con seguimiento profesional en cada etapa.",
-              },
-              {
-                titulo: "Cobertura internacional",
-                img: "/images/cobertura-internacional.jpg",
-                desc: "Red global de agentes y aliados estratégicos para tus envíos.",
-              },
-            ].map((servicio, idx) => (
-              <div
-                key={idx}
-                className="border border-blue-100 rounded-lg overflow-hidden shadow hover:shadow-lg transition"
-              >
-                <img
-                  src={servicio.img}
-                  alt={servicio.titulo}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-green-700 mb-2">
-                    {servicio.titulo}
-                  </h3>
-                  <p className="text-gray-700">{servicio.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiciosSection/>
+      
 
       {/* VENTAJAS */}
       <section id="ventajas" className="bg-blue-50 py-16">
@@ -210,6 +124,18 @@ export default function Home() {
           <div>
             <h3 className="text-2xl font-bold text-blue-900 mb-3">Logística puerta a puerta</h3>
             <p className="text-gray-700">Recibimos tu carga, gestionamos el embarque y te lo entregamos donde lo necesites.</p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-blue-900 mb-3">Cobertura internacional</h3>
+            <p className="text-gray-700">Red global de agentes y aliados estratégicos para tus envíos.</p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-blue-900 mb-3">Metodología y control</h3>
+            <p className="text-gray-700">Aplicamos procedimientos probados con seguimiento profesional en cada etapa.</p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-blue-900 mb-3">Rapidez operativa</h3>
+            <p className="text-gray-700">Optimizamos tiempos y procesos desde origen hasta destino.</p>
           </div>
         </div>
       </section>
@@ -255,9 +181,9 @@ export default function Home() {
           <form className="grid gap-4 max-w-lg mx-auto" onSubmit={handleSubmit}>
             <input type="text" name="nombre" placeholder="Nombre" value={formData.nombre} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-2 placeholder-gray-500" />
             <input type="email" name="email" placeholder="Correo electrónico" value={formData.email} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-2 placeholder-gray-500" />
-            <textarea name="mensaje" placeholder="Detalle de la solicitud" rows={4} value={formData.mensaje} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-2 placeholder-gray-500"></textarea>
+            <textarea name="mensaje" placeholder="Detalle de la solicitud" rows={4} value={formData.mensaje} onChange={handleChange} required className="border border-gray-300 rounded-lg px-4 py-2 text-gray-800 placeholder-gray-600"></textarea>
             <button type="submit" className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">Enviar Solicitud</button>
-            {status && <p className="mt-2 text-center">{status}</p>}
+            {status && <p className="mt-2 text-center text-gray-500">{status}</p>}
           </form>
         </div>
       </section>

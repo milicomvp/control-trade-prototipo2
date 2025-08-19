@@ -36,8 +36,8 @@ export default function Navbar() {
   const links = [
     { id: 'inicio', label: 'Inicio' },
     { id: 'quienes-somos', label: 'Quiénes Somos' },
-    { id: 'porqueelegirnos', label: '¿Por qué elegirnos?' },
-    { id: 'pensado-para-ti', label: 'Pensado para ti' },
+    { id: 'servicios', label: 'Servicios' },
+    // { id: 'pensado-para-ti', label: 'Pensado para ti' },
     { id: 'cotizacion', label: 'Cotización' },
     { id: 'contacto', label: 'Contacto' },
   ];
