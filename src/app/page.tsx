@@ -152,7 +152,7 @@ export default function Home() {
           <ul className="space-y-4 text-lg text-gray-700 mb-8">
             <li className="flex items-center justify-center space-x-2">
               <span className="text-green-600 text-xl">✔</span>
-              <span>Importadores primerizos (REVISAR)</span>
+              <span>Nuevos Importadores</span>
             </li>
             <li className="flex items-center justify-center space-x-2">
               <span className="text-green-600 text-xl">✔</span>
@@ -193,12 +193,12 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-3">Contáctanos</h3>
-            <p>Email: contacto@controltrade.cl</p>
-            <p>Tel: +56 9 1234 5678</p>
+            <p>Email: javier.herrera@controltradelogistics.com</p>
+            <p>Tel: +56 9 9516 8240</p>
           </div>
           <div>
             <h3 className="text-2xl font-bold mb-3">Ubicación</h3>
-            <p>Santiago, Chile</p>
+            <p>Hernan Cortez Nro.2974, Ñuñoa, Santiago de Chile.</p>
           </div>
         </div>
       </section>
