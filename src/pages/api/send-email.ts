@@ -17,14 +17,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
+
+    console.log("SMTP CONFIG:", {
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      user: process.env.EMAIL_USER,
+    });
+
     const port = parseInt(process.env.EMAIL_PORT || "587");
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port,
-      secure: port === 465, // SSL si es 465
+      secure: false, // 🔴 CLAVE para puerto 587
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false, // 🔴 CLAVE en Hostinger
       },
     });
 
@@ -47,7 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.status(200).json({ message: "Correo enviado correctamente" });
   } catch (err) {
-    console.error("SMTP error:", err);
+    console.error("SMTP ERROR REAL:", err);
     return res.status(500).json({ message: "Error enviando el correo" });
   }
 }
