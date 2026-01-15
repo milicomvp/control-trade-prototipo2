@@ -77,16 +77,16 @@ Acompañamos al cliente en cada etapa del proceso, asegurando un flujo operativo
     },
   ];
 
-// Tipado correcto para los componentes de Markdown (sin "any")
+  // Tipado correcto para los componentes de Markdown (sin "any")
   const mdComponents: Components = {
-    p: ({ node, ...props }) => (
+    p: ({ ...props }) => (
       <p className="text-gray-700 leading-relaxed mb-3" {...props} />
     ),
-    ul: ({ node, ...props }) => (
+    ul: ({ ...props }) => (
       <ul className="list-disc pl-6 space-y-1 text-gray-700 mb-3" {...props} />
     ),
-    li: ({ node, ...props }) => <li className="marker:text-green-600" {...props} />,
-    strong: ({ node, ...props }) => <strong className="text-blue-900" {...props} />,
+    li: ({ ...props }) => <li className="marker:text-green-600" {...props} />,
+    strong: ({ ...props }) => <strong className="text-blue-900" {...props} />,
   };
 
   return (
