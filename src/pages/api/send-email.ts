@@ -69,8 +69,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     return res.status(200).json({ message: "Correo enviado correctamente" });
-  } catch (err) {
+  } catch (err: any) {
     console.error("SMTP ERROR REAL:", err);
-    return res.status(500).json({ message: "Error enviando el correo" });
+
+    return res.status(500).json({
+      message: "Error enviando el correo",
+      error: {
+        name: err?.name,
+        message: err?.message,
+        code: err?.code,
+        response: err?.response,
+        command: err?.command,
+      },
+    });
   }
 }
