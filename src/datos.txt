@@ -6,16 +6,10 @@ EMAIL_FROM=esteban.reinosom@gmail.com
 EMAIL_TO=milicomvp@gmail.com
 
 
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=cotizacionescontroltradelogistics@gmail.com
-EMAIL_PASS=dicspsveknciibth
-EMAIL_FROM=cotizacionescontroltradelogistics@gmail.com
-EMAIL_TO=destino@controltrade.cl
 
 EMAIL_HOST=smtp.hostinger.com
 EMAIL_PORT=465
-EMAIL_USER=cotizaciones@controltradelogistics.com
-EMAIL_PASS=dicspsveknciibth
-EMAIL_FROM=cotizaciones@controltradelogistics.com
-EMAIL_TO=cotizaciones@controltradelogistics.com
+EMAIL_USER=javier.herrera@controltradelogistics.com
+EMAIL_PASS=OvakVtGYca2+
+EMAIL_FROM=javier.herrera@controltradelogistics.com
+EMAIL_TO=javier.herrera@controltradelogistics.com

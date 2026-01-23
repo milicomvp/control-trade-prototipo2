@@ -1,8 +1,22 @@
-import "dotenv/config";
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+import path from "path";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+/**
+ * Cargar variables de entorno:
+ * 1) process.env normal (si el hosting las inyecta)
+ * 2) fallback a ../.local/.env (persistente en Hostinger)
+ */
+dotenv.config();
+dotenv.config({
+  path: path.resolve(process.cwd(), "../.local/.env"),
+});
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Método no permitido" });
   }
@@ -23,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: "Datos inválidos o incompletos" });
   }
 
-  // Validación de variables de entorno (evita errores silenciosos)
+  // Leer variables de entorno
   const host = process.env.EMAIL_HOST;
   const port = Number(process.env.EMAIL_PORT || "465");
   const user = process.env.EMAIL_USER;
@@ -31,20 +45,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const from = process.env.EMAIL_FROM;
   const to = process.env.EMAIL_TO;
 
-  if (!host || !user || !pass || !from || !to || !port) {
-    return res.status(500).json({ message: "Faltan variables de entorno de email en el servidor" });
+  // Verificación explícita (evita errores silenciosos)
+  const missing = [
+    !host && "EMAIL_HOST",
+    !process.env.EMAIL_PORT && "EMAIL_PORT",
+    !user && "EMAIL_USER",
+    !pass && "EMAIL_PASS",
+    !from && "EMAIL_FROM",
+    !to && "EMAIL_TO",
+  ].filter(Boolean);
+
+  if (missing.length > 0) {
+    return res.status(500).json({
+      message: "Faltan variables de entorno de email en el servidor",
+      missing,
+    });
   }
 
   try {
     const transporter = nodemailer.createTransport({
       host,
       port,
-      secure: port === 465, // ✅ Hostinger: 465 = SSL
+      secure: port === 465, // Hostinger SMTP SSL
       auth: {
         user,
         pass,
       },
-      // Opcional: timeout para evitar cuelgues en producción
       connectionTimeout: 15_000,
       greetingTimeout: 15_000,
       socketTimeout: 20_000,
@@ -57,7 +83,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await transporter.sendMail({
       from: `"Cotización Web" <${from}>`,
       to,
-      replyTo: email, // ✅ para que al responder, le respondan al cliente
+      replyTo: email, // para responder directo al cliente
       subject: `Nueva cotización de ${nombre}`,
       text: `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`,
       html: `
@@ -69,10 +95,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       `,
     });
 
-    return res.status(200).json({ message: "Correo enviado correctamente" });
+    return res.status(200).json({
+      message: "Correo enviado correctamente",
+    });
   } catch (err: unknown) {
-    console.error("SMTP ERROR REAL:", err);
-
     const e = err as {
       name?: string;
       message?: string;
@@ -80,6 +106,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       response?: string;
       command?: string;
     };
+
+    console.error("SMTP ERROR REAL:", e);
 
     return res.status(500).json({
       message: "Error enviando el correo",
@@ -92,5 +120,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
   }
-
 }
